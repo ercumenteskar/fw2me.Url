@@ -2022,8 +2022,9 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020048;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020049;
         public static final int abc_textfield_search_material=0x7f02004a;
-        public static final int ic_launcher=0x7f02004b;
-        public static final int notification_template_icon_bg=0x7f02004c;
+        public static final int ic_dialog_logo=0x7f02004b;
+        public static final int ic_launcher=0x7f02004c;
+        public static final int notification_template_icon_bg=0x7f02004d;
     }
     public static final class id {
         public static final int action0=0x7f090052;
@@ -2269,13 +2270,14 @@ containing a value of this type.
         public static final int abc_toolbar_collapse_description=0x7f0a0004;
         public static final int action_settings=0x7f0a0016;
         public static final int app_name=0x7f0a0014;
-        public static final int autoShortConfDesc=0x7f0a001d;
-        public static final int autoShortConfTitle=0x7f0a001c;
-        public static final int copyConfDesc=0x7f0a001b;
-        public static final int copyConfTitle=0x7f0a001a;
+        public static final int autoShortConfDesc=0x7f0a001e;
+        public static final int autoShortConfTitle=0x7f0a001d;
+        public static final int copyConfDesc=0x7f0a001c;
+        public static final int copyConfTitle=0x7f0a001b;
         public static final int hello_world=0x7f0a0015;
-        public static final int loading=0x7f0a0017;
-        public static final int no=0x7f0a0019;
+        public static final int loading=0x7f0a0018;
+        public static final int no=0x7f0a001a;
+        public static final int pleasewait=0x7f0a0017;
         /**  Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated. May need to be localized
@@ -2283,7 +2285,7 @@ containing a value of this type.
          [CHAR LIMIT=4] 
          */
         public static final int status_bar_notification_info_overflow=0x7f0a0011;
-        public static final int yes=0x7f0a0018;
+        public static final int yes=0x7f0a0019;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0b0044;

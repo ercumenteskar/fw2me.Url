@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
 	ProgressDialog	            mProgressDialog;
 	Context	                    context;
 	String	                    loadingMessage	= "";
+	String	                    pwMessage	= "";
 	ArrayList<String>	          shorted	       = new ArrayList<String>();
 
   public void CreateNtf(String text)
@@ -86,7 +87,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		context = getApplicationContext();
 		loadingMessage = getResources().getText(R.string.loading).toString();
-		mProgressDialog = ProgressDialog.show(this, "FW2me - Url Shortener", loadingMessage, true);
+		pwMessage = getResources().getText(R.string.pleasewait).toString();
+		mProgressDialog = ProgressDialog.show(this, pwMessage, loadingMessage, true);
 		webView = (WebView) findViewById(R.id.webview);
 		webViewClient = new CustomWebViewClient();
 		webView.getSettings().setBuiltInZoomControls(false); 
@@ -124,6 +126,7 @@ public class MainActivity extends Activity {
 		if ((Patterns.WEB_URL.matcher(cBoard).matches()) && (!cBoard.contains("fw2.me")) && (!shorted.contains(cBoard))) {
 			new AlertDialog.Builder(MainActivity.this)
 			.setTitle(getResources().getString(R.string.autoShortConfTitle))
+			.setIcon(R.drawable.ic_dialog_logo)
 			.setMessage(getResources().getString(R.string.autoShortConfDesc).replace("%s", cBoard))
 			    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 				    @Override
