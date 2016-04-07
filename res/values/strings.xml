@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FW2me Url Shortener</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="loading">Loading</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="copyConfTitle">Copy to clipboard</string>
+    <string name="copyConfDesc">Would you like to copy your short url to clipboard?</string>
+    <string name="autoShortConfTitle">Auto Short</string>
+    <string name="autoShortConfDesc">Would you like to shrink %s?</string>
+    
+
+</resources>
