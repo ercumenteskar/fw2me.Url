@@ -49,22 +49,24 @@ public class MainActivity extends Activity {
        notificationView = new NotificationCompat.Builder(context);
       notificationView.setContentTitle(getResources().getString(R.string.app_name))
       .setContentText(text)
+      .setSmallIcon(R.drawable.ic_dialog_logo)
       //.setTicker(getResources().getString(R.string.app_name) + " " + text)
       .setWhen(System.currentTimeMillis())
       .setContentIntent(pendingIntent)
       //.setDefaults(Notification.DEFAULT_SOUND)
-      .setAutoCancel(false)
+      .setAutoCancel(true)
       .setSmallIcon(R.drawable.ic_launcher)
       .getNotification();
   }else{
            notificationView = new NotificationCompat.Builder(context);
           notificationView.setContentTitle(getResources().getString(R.string.app_name))
-          .setContentText(text)
+          .setSmallIcon(R.drawable.ic_dialog_logo)
+			          .setContentText(text)
           //.setTicker(getResources().getString(R.string.app_name) + " " + text)
           .setWhen(System.currentTimeMillis())
           .setContentIntent(pendingIntent)
           //.setDefaults(Notification.DEFAULT_SOUND)
-          .setAutoCancel(false)
+          .setAutoCancel(true)
           .setSmallIcon(R.drawable.ic_launcher)
           .build();
 
@@ -236,8 +238,10 @@ public class MainActivity extends Activity {
 				}
 				final String shortUrl = html;
 				if (Patterns.WEB_URL.matcher(shortUrl).matches()) {
-					new AlertDialog.Builder(MainActivity.this).setTitle(getResources().getString(R.string.copyConfTitle)).setMessage(getResources().getString(R.string.copyConfDesc))
-					    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+					new AlertDialog.Builder(MainActivity.this)
+					     .setTitle(getResources().getString(R.string.copyConfTitle)).setMessage(getResources().getString(R.string.copyConfDesc))
+							 .setIcon(R.drawable.ic_dialog_logo)
+							 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 						    @Override
                 public void onClick(DialogInterface dialog, int which) {
 							    copyToClipboard(shortUrl);
