@@ -2024,7 +2024,10 @@ containing a value of this type.
         public static final int abc_textfield_search_material=0x7f02004a;
         public static final int ic_dialog_logo=0x7f02004b;
         public static final int ic_launcher=0x7f02004c;
-        public static final int notification_template_icon_bg=0x7f02004d;
+        public static final int ic_launcher_dt=0x7f02004d;
+        public static final int ic_launcher_sb=0x7f02004e;
+        public static final int ic_launcher_sb_=0x7f02004f;
+        public static final int notification_template_icon_bg=0x7f020050;
     }
     public static final class id {
         public static final int action0=0x7f090052;
@@ -2277,6 +2280,7 @@ containing a value of this type.
         public static final int hello_world=0x7f0a0015;
         public static final int loading=0x7f0a0018;
         public static final int no=0x7f0a001a;
+        public static final int noConnection=0x7f0a001f;
         public static final int pleasewait=0x7f0a0017;
         /**  Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in

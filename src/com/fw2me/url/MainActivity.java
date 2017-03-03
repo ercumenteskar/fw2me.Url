@@ -15,6 +15,7 @@ import android.content.ClipboardManager.OnPrimaryClipChangedListener;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -47,7 +48,7 @@ public class MainActivity extends Activity {
   if(Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT <= 15){
 
        notificationView = new NotificationCompat.Builder(context);
-      notificationView.setContentTitle(getResources().getString(R.string.app_name))
+      notificationView.setContentTitle(getResources().getString(R.string.autoShortConfTitle))
       .setContentText(text)
       .setSmallIcon(R.drawable.ic_dialog_logo)
       //.setTicker(getResources().getString(R.string.app_name) + " " + text)
@@ -55,11 +56,11 @@ public class MainActivity extends Activity {
       .setContentIntent(pendingIntent)
       //.setDefaults(Notification.DEFAULT_SOUND)
       .setAutoCancel(true)
-      .setSmallIcon(R.drawable.ic_launcher)
+      .setSmallIcon(R.drawable.ic_launcher_sb)
       .getNotification();
   }else{
            notificationView = new NotificationCompat.Builder(context);
-          notificationView.setContentTitle(getResources().getString(R.string.app_name))
+          notificationView.setContentTitle(getResources().getString(R.string.autoShortConfTitle))
           .setSmallIcon(R.drawable.ic_dialog_logo)
 			          .setContentText(text)
           //.setTicker(getResources().getString(R.string.app_name) + " " + text)
@@ -67,7 +68,7 @@ public class MainActivity extends Activity {
           .setContentIntent(pendingIntent)
           //.setDefaults(Notification.DEFAULT_SOUND)
           .setAutoCancel(true)
-          .setSmallIcon(R.drawable.ic_launcher)
+          .setSmallIcon(R.drawable.ic_launcher_sb)
           .build();
 
   }
@@ -79,7 +80,8 @@ public class MainActivity extends Activity {
 	private void performClipboardCheck() {
 		String str = pasteFromClipboard();
 		if (Patterns.WEB_URL.matcher(str).matches())
-		  CreateNtf(str);
+			if (!shorted.contains(str))
+		    CreateNtf(str);
 }
 
 @SuppressLint("SetJavaScriptEnabled")
@@ -103,8 +105,13 @@ public class MainActivity extends Activity {
 		webView.setHorizontalScrollBarEnabled(true);
 		webView.setVerticalScrollBarEnabled(true);
 		webView.setWebViewClient(webViewClient); 
-		
-		webView.loadUrl(url);
+		String ver = "";
+    try {
+	    ver = "?ver="+getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+    } catch (NameNotFoundException e) {
+	    e.printStackTrace();
+    }
+		webView.loadUrl(url+ver);
 		//performClipboardCheck();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
 		{
@@ -154,7 +161,12 @@ public class MainActivity extends Activity {
 			if (myClipboard.hasPrimaryClip())
 			{
 				final ClipData abc = myClipboard.getPrimaryClip();
-				ret = abc.getItemAt(0).getText().toString();
+				try 
+				{
+					ret = abc.getItemAt(0).getText().toString();
+        } catch (Exception e) {
+  				ret = "";
+        }
 			}
 		} else {
 			final android.text.ClipboardManager clipboardManager = (android.text.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -273,7 +285,7 @@ public class MainActivity extends Activity {
 		public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
 			view.setVisibility(View.GONE);
 			mProgressDialog.dismiss();
-			Toast.makeText(getApplicationContext(), "HATA OLUÞTU LÜTFEN ÝNTERNET BAÐLANTINIZI KONTROL EDÝN", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), R.string.noConnection, Toast.LENGTH_LONG).show();
 			// BU method webview yüklenirken herhangi bir hatayla karþilaþilýrsa hata
 			// kodu dönüyor.
 			// Dönen hata koduna göre kullanýcýyý bilgilendirebilir yada gerekli

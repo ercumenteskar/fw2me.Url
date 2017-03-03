@@ -449,7 +449,10 @@ int drawable abc_textfield_search_default_mtrl_alpha 0x7f020049
 int drawable abc_textfield_search_material 0x7f02004a
 int drawable ic_dialog_logo 0x7f02004b
 int drawable ic_launcher 0x7f02004c
-int drawable notification_template_icon_bg 0x7f02004d
+int drawable ic_launcher_dt 0x7f02004d
+int drawable ic_launcher_sb 0x7f02004e
+int drawable ic_launcher_sb_ 0x7f02004f
+int drawable notification_template_icon_bg 0x7f020050
 int id action0 0x7f090052
 int id action_bar 0x7f090042
 int id action_bar_activity_content 0x7f090003
@@ -617,6 +620,7 @@ int string copyConfTitle 0x7f0a001b
 int string hello_world 0x7f0a0015
 int string loading 0x7f0a0018
 int string no 0x7f0a001a
+int string noConnection 0x7f0a001f
 int string pleasewait 0x7f0a0017
 int string status_bar_notification_info_overflow 0x7f0a0011
 int string yes 0x7f0a0019

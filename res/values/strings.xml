@@ -12,6 +12,7 @@
     <string name="copyConfDesc">Would you like to copy your short url to clipboard?</string>
     <string name="autoShortConfTitle">Auto Short</string>
     <string name="autoShortConfDesc">Would you like to shrink %s?</string>
+    <string name="noConnection">Please check your internet connection</string>
     
 
 </resources>
